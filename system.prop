@@ -1,6 +1,7 @@
 #
 # system.prop for sdm660
 #
+ro.mk.maintainer=dianlujitao
 
 #rild.libpath=/system/lib/libreference-ril.so
 rild.libpath=/system/vendor/lib64/libril-qc-qmi-1.so
