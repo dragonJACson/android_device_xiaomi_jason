@@ -1,5 +1,5 @@
 # 
-# Copyright (C) 2017-2018 The LineageOS Project
+# Copyright (C) 2017-2019 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -106,6 +106,7 @@ PRODUCT_CHARACTERISTICS := nosdcard
 
 # Alipay
 PRODUCT_PACKAGES += \
+    IFAAService \
     org.ifaa.android.manager
 
 PRODUCT_BOOT_JARS += \
@@ -368,11 +369,13 @@ PRODUCT_PACKAGES += \
 
 # MK hardware
 PRODUCT_PACKAGES += \
-    vendor.mokee.touch@1.0-service.jason
+    vendor.mokee.touch@1.0-service.jason \
+    vendor.mokee.trust@1.0-service
 
 # LiveDisplay
 PRODUCT_PACKAGES += \
-    vendor.mokee.livedisplay@2.0-service-sdm
+    vendor.mokee.livedisplay@2.0-service-sdm \
+    vendor.mokee.livedisplay@2.0-service-sysfs
 
 # Media
 PRODUCT_COPY_FILES += \

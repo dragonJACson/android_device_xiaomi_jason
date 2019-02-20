@@ -486,6 +486,14 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         <name>vendor.mokee.livedisplay</name>
         <version>2.0</version>
         <interface>
+            <name>IAdaptiveBacklight</name>
+            <instance>default</instance>
+        </interface>
+        <interface>
+            <name>IColorEnhancement</name>
+            <instance>default</instance>
+        </interface>
+        <interface>
             <name>IDisplayModes</name>
             <instance>default</instance>
         </interface>
@@ -507,6 +515,14 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         <version>1.0</version>
         <interface>
             <name>IKeyDisabler</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.mokee.trust</name>
+        <version>1.0</version>
+        <interface>
+            <name>IUsbRestrict</name>
             <instance>default</instance>
         </interface>
     </hal>
