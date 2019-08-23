@@ -2429,6 +2429,12 @@ case "$target" in
             # enable LPM
             echo 0 > /sys/module/lpm_levels/parameters/sleep_disabled
 
+            # Set default schedTune value for foreground/top-app (only affects EAS)
+            write /dev/stune/foreground/schedtune.prefer_idle 1
+            write /sys/module/boost_control/parameters/dynamic_stune_boost 1
+            write /dev/stune/background/schedtune.boost -100
+            write /dev/stune/top-app/schedtune.prefer_idle 1
+
             # re-enable thermal and BCL hotplug
             echo 1 > /sys/module/msm_thermal/core_control/enabled
 
@@ -2464,6 +2470,18 @@ case "$target" in
                 echo 400 > $memlat/mem_latency/ratio_ceil
             done
             echo "cpufreq" > /sys/class/devfreq/soc:qcom,mincpubw/governor
+
+            # Configure governor settings for little cluster (only affects EAS)
+            write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "schedutil"
+            write /sys/devices/system/cpu/cpu0/cpufreq/schedutil/up_rate_limit_us 500
+            write /sys/devices/system/cpu/cpu0/cpufreq/schedutil/down_rate_limit_us 500
+            write /sys/devices/system/cpu/cpu0/cpufreq/schedutil/iowait_boost_enable 1
+
+            # Configure governor settings for big cluster (only affects EAS)
+            write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor "schedutil"
+            write /sys/devices/system/cpu/cpu4/cpufreq/schedutil/up_rate_limit_us 500
+            write /sys/devices/system/cpu/cpu4/cpufreq/schedutil/down_rate_limit_us 500
+            write /sys/devices/system/cpu/cpu4/cpufreq/schedutil/iowait_boost_enable 1
 
             # Start cdsprpcd only for sdm660 and disable for sdm630
             if [ "$soc_id" -eq "317" ]; then
