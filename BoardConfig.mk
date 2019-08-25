@@ -54,11 +54,11 @@ BOARD_KERNEL_PAGESIZE    := 4096
 BOARD_KERNEL_TAGS_OFFSET := 0x01E00000
 BOARD_RAMDISK_OFFSET     := 0x02000000
 BOARD_KERNEL_IMAGE_NAME  := Image.gz-dtb
-KERNEL_TOOLCHAIN         := /home/luke/aosp/build-gcc/gcc/9.1.0/bin
+KERNEL_TOOLCHAIN         := /home/luke/aosp/build-gcc/gcc/9.2.0/bin
 KERNEL_GCC9_COMPILE      := true
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-
 TARGET_KERNEL_SOURCE := kernel/xiaomi/jason
-TARGET_KERNEL_CONFIG := mokee_jason_defconfig
+TARGET_KERNEL_CONFIG := lineageos_jason_defconfig
 TARGET_KERNEL_VERSION := 4.4
 # TARGET_KERNEL_CLANG_COMPILE := true
 # TARGET_KERNEL_CLANG_VERSION := 9.0.3
@@ -219,7 +219,6 @@ TARGET_USES_MKE2FS := true
 # Power
 TARGET_POWERHAL_VARIANT := qcom
 TARGET_TAP_TO_WAKE_NODE := "/sys/bus/i2c/devices/4-0020/input/input1/wake_gesture"
-TARGET_USES_INTERACTION_BOOST := true
 
 # Recovery
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/recovery.fstab

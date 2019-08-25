@@ -2431,7 +2431,7 @@ case "$target" in
 
             # Set default schedTune value for foreground/top-app (only affects EAS)
             write /dev/stune/foreground/schedtune.prefer_idle 1
-            write /sys/module/boost_control/parameters/dynamic_stune_boost 1
+            write /sys/module/boost_control/parameters/dynamic_stune_boost 10
             write /dev/stune/background/schedtune.boost -100
             write /dev/stune/top-app/schedtune.prefer_idle 1
 

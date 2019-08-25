@@ -777,7 +777,6 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         <version>1.0</version>
         <interface>
             <name>IMoKeePower</name>
-            <instance>default</instance>
         </interface>
     </hal>
     <hal format="hidl">
